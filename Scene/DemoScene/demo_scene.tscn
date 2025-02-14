@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgfy3o7dr6b3r"]
+[gd_scene load_steps=9 format=4 uid="uid://dgfy3o7dr6b3r"]
 
 [ext_resource type="TileSet" uid="uid://dkb2gqhi6px13" path="res://TileSet/game_tile_set.tres" id="1_pymur"]
+[ext_resource type="Theme" uid="uid://bexgy8bnujb4b" path="res://Theme/game_theme.tres" id="1_sev7m"]
 [ext_resource type="Texture2D" uid="uid://epa6hamruayl" path="res://Assets/Backgrounds/PS_Clouds_ 1.png" id="2_k4gd0"]
 [ext_resource type="Texture2D" uid="uid://brid50yoy7uap" path="res://Assets/Backgrounds/PS_Clouds_ 2.png" id="3_x2ja4"]
 [ext_resource type="Texture2D" uid="uid://bf74uoocbwcke" path="res://Assets/Backgrounds/PS_Clouds_ 3.png" id="4_32u2g"]
@@ -9,6 +10,141 @@
 [ext_resource type="PackedScene" uid="uid://df7x2us1ryo5d" path="res://Characters/Player/player.tscn" id="7_x8ug1"]
 
 [node name="DemoScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_bottom = 47.0
+grow_horizontal = 0
+theme_override_constants/separation = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_sev7m")
+text = "示例按钮"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_sev7m")
+text = "示例按钮"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_sev7m")
+text = "示例按钮"
+
+[node name="GlobalVolume" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 140.0
+offset_bottom = 19.0
+
+[node name="Label" type="Label" parent="CanvasLayer/GlobalVolume"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -5.5
+offset_right = 51.0
+offset_bottom = 6.5
+grow_vertical = 2
+theme = ExtResource("1_sev7m")
+text = "全局音量"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/GlobalVolume"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_sev7m")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="BGVolume" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 144.0
+offset_right = 260.0
+offset_bottom = 19.0
+
+[node name="Label" type="Label" parent="CanvasLayer/BGVolume"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -5.5
+offset_right = 51.0
+offset_bottom = 6.5
+grow_vertical = 2
+theme = ExtResource("1_sev7m")
+text = "音乐"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/BGVolume"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_sev7m")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="SFXVolume" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 267.0
+offset_right = 382.0
+offset_bottom = 19.0
+
+[node name="Label" type="Label" parent="CanvasLayer/SFXVolume"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -6.0
+offset_right = 24.0
+offset_bottom = 6.0
+grow_vertical = 2
+theme = ExtResource("1_sev7m")
+text = "音效"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/SFXVolume"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_sev7m")
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="Map" type="Node2D" parent="."]
 

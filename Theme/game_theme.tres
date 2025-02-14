@@ -1,0 +1,77 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bexgy8bnujb4b"]
+
+[ext_resource type="FontFile" uid="uid://b45m1yhiyek2" path="res://Assets/Font/fusion-pixel-12px-monospaced-zh_hant.ttf" id="1_adejk"]
+[ext_resource type="Texture2D" uid="uid://q3rg7hcytfci" path="res://Assets/Button/normal-ui.png" id="1_ed8ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6sbgt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abqqx"]
+texture = ExtResource("1_ed8ly")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(13, 1, 5, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7u8b"]
+texture = ExtResource("1_ed8ly")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(13, 7, 5, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5t1b"]
+texture = ExtResource("1_ed8ly")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(13, 19, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onks3"]
+atlas = ExtResource("1_ed8ly")
+region = Rect2(9, 71, 8, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yorp"]
+atlas = ExtResource("1_ed8ly")
+region = Rect2(0, 71, 8, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebec3"]
+texture = ExtResource("1_ed8ly")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(12, 61, 11, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1b42c"]
+texture = ExtResource("1_ed8ly")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(12, 61, 11, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y637k"]
+texture = ExtResource("1_ed8ly")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 61, 11, 7)
+
+[resource]
+default_font = ExtResource("1_adejk")
+default_font_size = 12
+Button/styles/focus = SubResource("StyleBoxEmpty_6sbgt")
+Button/styles/hover = SubResource("StyleBoxTexture_abqqx")
+Button/styles/normal = SubResource("StyleBoxTexture_l7u8b")
+Button/styles/pressed = SubResource("StyleBoxTexture_n5t1b")
+HSlider/icons/grabber = SubResource("AtlasTexture_onks3")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_5yorp")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ebec3")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_1b42c")
+HSlider/styles/slider = SubResource("StyleBoxTexture_y637k")
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_adejk")
