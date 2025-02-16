@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var graphic: Node2D = $Graphic
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@export var run_sfx:AudioStream
+@export var jump_sfx:AudioStream
+
 func _physics_process(delta):
 	# 应用重力（无论是否在地面）
 	velocity.y += gravity * delta
@@ -22,6 +25,7 @@ func _physics_process(delta):
 	# 跳跃处理（需要在地面时才能跳）
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		AudioManager.play_sfx(jump_sfx)
 	
 	if not is_on_floor():
 		animation_player.play("jump")
@@ -32,3 +36,6 @@ func _physics_process(delta):
 	
 	# 应用最终速度并处理碰撞
 	move_and_slide()
+
+func play_run_sfx() -> void:
+	AudioManager.play_sfx(run_sfx)

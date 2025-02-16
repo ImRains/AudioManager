@@ -1,15 +1,26 @@
-[gd_scene load_steps=9 format=4 uid="uid://dgfy3o7dr6b3r"]
+[gd_scene load_steps=16 format=4 uid="uid://dgfy3o7dr6b3r"]
 
+[ext_resource type="Script" path="res://Scene/DemoScene/demo_scene.gd" id="1_lahig"]
 [ext_resource type="TileSet" uid="uid://dkb2gqhi6px13" path="res://TileSet/game_tile_set.tres" id="1_pymur"]
 [ext_resource type="Theme" uid="uid://bexgy8bnujb4b" path="res://Theme/game_theme.tres" id="1_sev7m"]
+[ext_resource type="AudioStream" uid="uid://c24w31c17k8j0" path="res://Assets/Audio/BGM1.wav" id="2_fs0ap"]
 [ext_resource type="Texture2D" uid="uid://epa6hamruayl" path="res://Assets/Backgrounds/PS_Clouds_ 1.png" id="2_k4gd0"]
+[ext_resource type="AudioStream" uid="uid://syt07fropaxc" path="res://Assets/Audio/BGM2.mp3" id="3_jlqn6"]
 [ext_resource type="Texture2D" uid="uid://brid50yoy7uap" path="res://Assets/Backgrounds/PS_Clouds_ 2.png" id="3_x2ja4"]
 [ext_resource type="Texture2D" uid="uid://bf74uoocbwcke" path="res://Assets/Backgrounds/PS_Clouds_ 3.png" id="4_32u2g"]
+[ext_resource type="AudioStream" uid="uid://c2simg00qwcdn" path="res://Assets/Audio/BGM3.mp3" id="4_oq5lf"]
 [ext_resource type="Texture2D" uid="uid://druvgpamtm5xk" path="res://Assets/Backgrounds/PS_Clouds_ 5.png" id="5_6ivln"]
+[ext_resource type="Script" path="res://Scene/DemoScene/ButtonSFXComponent.gd" id="6_18ke7"]
 [ext_resource type="Texture2D" uid="uid://cjf2jgifw3upk" path="res://Assets/Backgrounds/PS_Clouds_ 4.png" id="6_cte4c"]
+[ext_resource type="AudioStream" uid="uid://bccsyfk572adv" path="res://Assets/Audio/Button_Click.wav" id="7_1uxq3"]
 [ext_resource type="PackedScene" uid="uid://df7x2us1ryo5d" path="res://Characters/Player/player.tscn" id="7_x8ug1"]
+[ext_resource type="AudioStream" uid="uid://bv0oi3c48nfn6" path="res://Assets/Audio/Button_Hover.wav" id="8_5wi6l"]
 
 [node name="DemoScene" type="Node2D"]
+script = ExtResource("1_lahig")
+bg_music1 = ExtResource("2_fs0ap")
+bg_music2 = ExtResource("3_jlqn6")
+bg_music3 = ExtResource("4_oq5lf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,20 +33,35 @@ offset_bottom = 47.0
 grow_horizontal = 0
 theme_override_constants/separation = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="BGM1" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_sev7m")
-text = "示例按钮"
+text = "音乐1"
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_sev7m")
-text = "示例按钮"
+[node name="ButtonSFXComponent" type="Node" parent="CanvasLayer/VBoxContainer/BGM1"]
+script = ExtResource("6_18ke7")
+click_sfx = ExtResource("7_1uxq3")
+hover_sfx = ExtResource("8_5wi6l")
 
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="BGM2" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_sev7m")
-text = "示例按钮"
+text = "音乐2"
+
+[node name="ButtonSFXComponent2" type="Node" parent="CanvasLayer/VBoxContainer/BGM2"]
+script = ExtResource("6_18ke7")
+click_sfx = ExtResource("7_1uxq3")
+hover_sfx = ExtResource("8_5wi6l")
+
+[node name="BGM3" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_sev7m")
+text = "音乐3"
+
+[node name="ButtonSFXComponent3" type="Node" parent="CanvasLayer/VBoxContainer/BGM3"]
+script = ExtResource("6_18ke7")
+click_sfx = ExtResource("7_1uxq3")
+hover_sfx = ExtResource("8_5wi6l")
 
 [node name="GlobalVolume" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -56,7 +82,7 @@ grow_vertical = 2
 theme = ExtResource("1_sev7m")
 text = "全局音量"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/GlobalVolume"]
+[node name="GlobalVolumeSlider" type="HSlider" parent="CanvasLayer/GlobalVolume"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -93,7 +119,7 @@ grow_vertical = 2
 theme = ExtResource("1_sev7m")
 text = "音乐"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/BGVolume"]
+[node name="BGVolumeSlider" type="HSlider" parent="CanvasLayer/BGVolume"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -129,7 +155,7 @@ grow_vertical = 2
 theme = ExtResource("1_sev7m")
 text = "音效"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/SFXVolume"]
+[node name="SFXVolumeSlider" type="HSlider" parent="CanvasLayer/SFXVolume"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -200,3 +226,10 @@ tile_set = ExtResource("1_pymur")
 
 [node name="Player" parent="." instance=ExtResource("7_x8ug1")]
 position = Vector2(78, 253)
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/BGM1" to="." method="_on_bgm_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/BGM2" to="." method="_on_bgm_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/BGM3" to="." method="_on_bgm_3_pressed"]
+[connection signal="value_changed" from="CanvasLayer/GlobalVolume/GlobalVolumeSlider" to="." method="_on_global_volume_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/BGVolume/BGVolumeSlider" to="." method="_on_bg_volume_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/SFXVolume/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]

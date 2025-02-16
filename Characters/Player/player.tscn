@@ -1,73 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://df7x2us1ryo5d"]
+[gd_scene load_steps=11 format=3 uid="uid://df7x2us1ryo5d"]
 
 [ext_resource type="Texture2D" uid="uid://ckvx2wm6u44aj" path="res://Assets/Hero 010/Hero_10.png" id="1_dprsg"]
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_kp1kv"]
-
-[sub_resource type="Animation" id="Animation_0u6i1"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Graphic/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_dprsg")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Graphic/Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Graphic/Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Graphic/Sprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Graphic/Sprite2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -16)]
-}
+[ext_resource type="AudioStream" uid="uid://jx8ptrgriwgd" path="res://Assets/Audio/SFX_Run_1.wav" id="2_4hnbb"]
+[ext_resource type="AudioStream" uid="uid://n05ro1uc6noo" path="res://Assets/Audio/SFX_Jump_1.wav" id="3_o2kga"]
 
 [sub_resource type="Animation" id="Animation_reegu"]
 length = 0.001
@@ -132,8 +68,8 @@ tracks/4/keys = {
 "values": [Vector2(0, -16)]
 }
 
-[sub_resource type="Animation" id="Animation_fafb6"]
-resource_name = "run"
+[sub_resource type="Animation" id="Animation_0u6i1"]
+resource_name = "idle"
 length = 0.6
 loop_mode = 1
 step = 0.1
@@ -183,7 +119,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [7, 8, 9, 10, 11, 12]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -264,6 +200,89 @@ tracks/4/keys = {
 "values": [Vector2(0, -14)]
 }
 
+[sub_resource type="Animation" id="Animation_fafb6"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphic/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_dprsg")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphic/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphic/Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphic/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphic/Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_run_sfx"
+}, {
+"args": [],
+"method": &"play_run_sfx"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8lykd"]
 _data = {
 "RESET": SubResource("Animation_reegu"),
@@ -278,6 +297,8 @@ height = 18.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kp1kv")
+run_sfx = ExtResource("2_4hnbb")
+jump_sfx = ExtResource("3_o2kga")
 
 [node name="Graphic" type="Node2D" parent="."]
 
