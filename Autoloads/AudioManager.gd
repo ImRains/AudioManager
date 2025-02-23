@@ -41,17 +41,14 @@ func init_music_audio_manager() -> void:
 ## 播放指定音乐
 func play_music(_audio: AudioStream) -> void:
 	var current_audio_player := music_players[current_music_player_index]
-	var old_audio_player_index = 0 if current_music_player_index == 1 else 1
-	var old_audio_player := music_players[old_audio_player_index]
-	if old_audio_player.stream == _audio:
+	var empty_audio_player_index = 0 if current_music_player_index == 1 else 1
+	var empty_audio_player := music_players[empty_audio_player_index]
+	if current_audio_player.stream == _audio:
 		return
-	current_audio_player.stream = _audio
-	play_and_fade_in(current_audio_player)
-	
-	# 关闭之前的播放器
-	fade_out_and_sotp(old_audio_player)
-	# 修改current_music_player_index
-	current_music_player_index = 1 if current_music_player_index == 0 else 0
+	fade_out_and_sotp(current_audio_player)
+	empty_audio_player.stream = _audio
+	play_and_fade_in(empty_audio_player)
+	current_music_player_index = empty_audio_player_index
 
 ## 播放音乐并渐入
 func play_and_fade_in(_audio_player: AudioStreamPlayer) -> void:
